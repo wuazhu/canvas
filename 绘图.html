@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas</title>
+  <style>
+  body {
+    background: #333;
+  }
+  #canvas {
+    background: #fff;
+  }
+  </style>
+</head>
+<body>
+  <div id="cvs">
+    <canvas id="canvas" width="600" height="600"></canvas>
+  </div>
+<script>
+  let canvas = document.getElementById('canvas')
+  let ctx = canvas.getContext('2d')
+
+  // 局部作用
+  ctx.save()
+  ctx.strokeStyle = 'green'       // 设置边框颜色
+  // 开始绘制
+  ctx.beginPath()
+  // 开始点位
+  ctx.moveTo(20.5, 20.5)
+  // 线条绘制
+  ctx.lineTo(100, 100)
+  ctx.lineTo(200, 200)
+  ctx.lineTo(300, 200)
+  // 线条闭合
+  ctx.closePath()
+  // 开始连线
+  ctx.stroke()
+  // 局部作用结束
+  ctx.restore()
+
+
+  // 开始绘制
+  ctx.beginPath()
+  // 开始点位
+  ctx.moveTo(20.5, 220.5)
+  // 线条绘制
+  ctx.lineTo(150, 400)
+  ctx.lineTo(200, 400)
+  ctx.lineTo(250, 400)
+  // 线条闭合
+  ctx.closePath()
+  // 开始连线
+  ctx.fill()
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas</title>
+  <style>
+  body {
+    background: #333;
+  }
+  #canvas {
+    background: #fff;
+  }
+  </style>
+</head>
+<body>
+  <div id="cvs">
+    <canvas id="canvas" width="600" height="600"></canvas>
+  </div>
+  <script>
+  let canvas = document.getElementById('canvas')
+  let context = canvas.getContext('2d')
+
+  context.fillStyle = 'red'           // 设置背景填充色
+  context.strokeStyle = 'green'       // 设置边框颜色
+  context.lineWidth = '15'            // 设置边框宽度
+  context.lineJoin = 'round'          // round/bevel 设置边框模式 圆角/斜切
+
+  context.fillRect(0, 0, 100, 100)
+  context.strokeRect(110.5, 110.5, 100, 100)
+
+
+  </script>
+</body>
+</html>
