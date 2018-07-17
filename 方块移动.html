@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas</title>
+  <style>
+  body {
+    background: #333;
+  }
+  #canvas {
+    background: #fff;
+  }
+  </style>
+</head>
+<body>
+  <div id="cvs">
+    <canvas id="canvas" width="600" height="600"></canvas>
+  </div>
+<script>
+  let canvas = document.getElementById('canvas')
+  let ctx = canvas.getContext('2d')
+
+  ctx.strokeStyle = 'green'       // 设置边框颜色
+  let x = 0
+  let y = 0
+  let canvasWH = 30
+  ctx.fillRect(x, y, 30, 30)
+  canvas.onmousedown = (ev) => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    x = (ev.clientX - canvas.offsetLeft) - canvasWH/2
+    y = (ev.clientY - canvas.offsetTop) - canvasWH/2
+    ctx.fillRect(x, y, canvasWH*1.5, canvasWH*1.5)
+    document.onmousemove = (ev) => {
+      x = (ev.clientX - canvas.offsetLeft) - canvasWH/2
+      y = (ev.clientY - canvas.offsetTop) - canvasWH/2
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      ctx.fillRect(x, y, canvasWH, canvasWH)
+      ctx.stroke()
+    }
+
+    document.onmouseup = () => {
+      document.onmousedown = null
+      document.onmousemove = null
+    }
+  }
+</script>
+</body>
+</html>
